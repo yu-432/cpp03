@@ -6,15 +6,15 @@
 #    By: yooshima <yooshima@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 21:03:57 by yooshima          #+#    #+#              #
-#    Updated: 2025/01/15 12:56:03 by yooshima         ###   ########.fr        #
+#    Updated: 2025/01/15 22:12:51 by yooshima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= scavtrap
+NAME		= fragtrap
 CXX			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJS		= $(SRCS:.cpp=.o)
 
 all:	$(NAME)

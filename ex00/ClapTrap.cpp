@@ -6,66 +6,65 @@
 /*   By: yooshima <yooshima@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 21:29:35 by yooshima          #+#    #+#             */
-/*   Updated: 2025/01/09 23:54:22 by yooshima         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:47:55 by yooshima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.h"
 
-ClapTrap::~ClapTrap() {};
-
 ClapTrap::ClapTrap(const std::string& name)
-    : m_name(name), m_hitPoint(10), m_energyPoint(10), m_attakDamage(0) {};
+    : _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
+  std::cout << "Default constructor called" << std::endl;
+};
 
 ClapTrap::ClapTrap(const ClapTrap& right)
-    : m_name(right.m_name),
-      m_hitPoint(right.m_hitPoint),
-      m_energyPoint(right.m_energyPoint),
-      m_attakDamage(right.m_attakDamage) {};
+    : _name(right._name),
+      _hitPoint(right._hitPoint),
+      _energyPoint(right._energyPoint),
+      _attackDamage(right._attackDamage) {
+  std::cout << "Copy constructor called" << std::endl;
+};
+
+ClapTrap::~ClapTrap() { std::cout << "Destructor called" << std::endl; };
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& right) {
-  if (*this != right) {
-    m_name = right.m_name;
-    m_energyPoint = right.m_energyPoint;
-    m_attakDamage = right.m_attakDamage;
-    m_hitPoint = right.m_hitPoint;
+  std::cout << "Copy assignment operator called" << std::endl;
+  if (this != &right) {
+    _name = right._name;
+    _energyPoint = right._energyPoint;
+    _attackDamage = right._attackDamage;
+    _hitPoint = right._hitPoint;
   }
   return *this;
 }
 
-bool ClapTrap::operator==(const ClapTrap& right) {
-  return (m_name == right.m_name && m_hitPoint == right.m_hitPoint &&
-          m_energyPoint == right.m_energyPoint &&
-          m_attakDamage == right.m_attakDamage);
-};
-
-bool ClapTrap::operator!=(const ClapTrap& right) { return !(*this == right); }
-
 void ClapTrap::attack(const std::string& target) {
-  if (m_energyPoint <= 0 || m_hitPoint) {
-    std::cout << "not enough energy or hit points!" << std::endl;
+  if (_energyPoint <= 0 || _hitPoint <= 0) {
+    std::cout << "ClapTrap " << _name << " not enough energy or hit points!" << std::endl;
     return;
   }
-  std::cout << "ClapTrap " << m_name << " attacks " << target << ", causing " << m_attakDamage << " points of damage!" << std::endl;
-  m_energyPoint--;
+  std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
+            << _attackDamage << " points of damage!" << std::endl;
+  _energyPoint--;
 }
-
 
 void ClapTrap::takeDamage(unsigned int amount) {
-  if (m_hitPoint <= 0) {
-    std::cout << "not enough hit points" << std::endl;
-    return ;
-  }
-  std::cout << "ClapTrap " << m_name << " takes " << amount << " points of damage!" << std::endl;
-  m_hitPoint -= amount;
-}
-
-void ClapTrap::beRepairead(unsigned int amount) {
-  if (m_energyPoint <= 0 || m_hitPoint) {
-    std::cout << "not enough energy points or hit points" << std::endl;
+  if (_hitPoint <= 0) {
+    std::cout << "ClapTrap " << _name << " not enough hit points" << std::endl;
     return;
   }
-  std::cout << "ClapTrap " << m_name << " repairs " << amount << " hit points!" << std::endl;
-  m_attakDamage += amount;
-  m_energyPoint--;
+  std::cout << "ClapTrap " << _name << " takes " << amount
+            << " points of damage!" << std::endl;
+  _hitPoint -= amount;
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+  if (_energyPoint <= 0 || _hitPoint <= 0) {
+    std::cout << "ClapTrap " << _name << " not enough energy points or hit points" << std::endl;
+    return;
+  }
+  std::cout << "ClapTrap " << _name << " repairs " << amount << " hit points!"
+            << std::endl;
+  _hitPoint += amount;
+  _energyPoint--;
 }

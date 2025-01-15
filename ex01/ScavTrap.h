@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yooshima <yooshima@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 21:18:39 by yooshima          #+#    #+#             */
-/*   Updated: 2025/01/15 16:12:04 by yooshima         ###   ########.fr       */
+/*   Created: 2025/01/11 12:11:56 by yooshima          #+#    #+#             */
+/*   Updated: 2025/01/15 19:16:47 by yooshima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.h"
-#include "ScavTrap.h"
+#ifndef SCAVTRAP
+#define SCAVTRAP
 
-int main(void) {
-  ClapTrap a("ClapA");
-  ScavTrap b("ScavB");
-  
-  a.attack("HumanA");
-  // a.guardGate();
-  b.attack("humanA");    
-  for(int i = 0; i < 5; i++)
-    b.takeDamage(25);
-  b.guardGate();
-  b.guardGate();
-}
+#include "ClapTrap.h"
+
+class ScavTrap : public ClapTrap {
+ public:
+  ScavTrap(const std::string& name);
+  ScavTrap(const ScavTrap& src);
+  ~ScavTrap();
+  ScavTrap& operator=(const ScavTrap& src);
+  void attack(const std::string& target);
+  void takeDamage(const unsigned int& amount);
+  void beRepaired(const unsigned int& amount);
+  void guardGate();
+
+ private:
+  bool _is_guard;
+};
+
+#endif
