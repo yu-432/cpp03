@@ -6,7 +6,7 @@
 /*   By: yooshima <yooshima@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:17:13 by yooshima          #+#    #+#             */
-/*   Updated: 2025/01/16 11:56:55 by yooshima         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:48:03 by yooshima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src) {
   _hitPoint = src._hitPoint;
   _energyPoint = src._energyPoint;
   _attackDamage = src._attackDamage;
+  _is_guard = src._is_guard;
   }
   return *this;
 }
