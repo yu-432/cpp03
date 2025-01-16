@@ -6,7 +6,7 @@
 /*   By: yooshima <yooshima@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:05:12 by yooshima          #+#    #+#             */
-/*   Updated: 2025/01/16 11:58:27 by yooshima         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:31:29 by yooshima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ FragTrap& FragTrap::operator=(const FragTrap& src) {
   return *this;
 }
 
-FragTrap::~FragTrap() {}
+FragTrap::~FragTrap() {
+  std::cout << "FragTrap " << _name << " Destructor called" << std::endl;
+}
 
 void FragTrap::attack(const std::string& target) {
   if (_energyPoint <= 0 || _hitPoint <= 0) {
