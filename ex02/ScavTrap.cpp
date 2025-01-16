@@ -6,7 +6,7 @@
 /*   By: yooshima <yooshima@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:17:13 by yooshima          #+#    #+#             */
-/*   Updated: 2025/01/15 19:21:56 by yooshima         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:56:55 by yooshima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ScavTrap::attack(const std::string& target) {
 
 void ScavTrap::takeDamage(const unsigned int& amount) {
   if (_hitPoint <= 0) {
-    std::cout << "ScavTrap " << _name << " not enough hit points" << std::endl;
+    std::cout << "ScavTrap " << _name << " not enough hit points!" << std::endl;
     return;
   }
   std::cout << "ScavTrap " << _name << " takes " << amount
@@ -66,7 +66,7 @@ void ScavTrap::takeDamage(const unsigned int& amount) {
 void ScavTrap::beRepaired(const unsigned int& amount) {
   if (_energyPoint <= 0 || _hitPoint <= 0) {
     std::cout << "ScavTrap " << _name
-              << " not enough energy points or hit points" << std::endl;
+              << " not enough energy or hit points!" << std::endl;
     return;
   }
   std::cout << "ScavTrap " << _name << " repairs " << amount << " hit points!"

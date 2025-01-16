@@ -6,7 +6,7 @@
 /*   By: yooshima <yooshima@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 21:18:39 by yooshima          #+#    #+#             */
-/*   Updated: 2025/01/15 16:12:04 by yooshima         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:36:07 by yooshima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 #include "ScavTrap.h"
 
 int main(void) {
-  ClapTrap a("ClapA");
-  ScavTrap b("ScavB");
+  ClapTrap c1("ClapA");
+  ScavTrap s1("ScavB");
   
-  a.attack("HumanA");
-  // a.guardGate();
-  b.attack("humanA");    
+  c1.attack("HumanA");
+
+  s1.attack("humanA");
   for(int i = 0; i < 5; i++)
-    b.takeDamage(25);
-  b.guardGate();
-  b.guardGate();
+    s1.takeDamage(25);
+  s1.beRepaired(25);
+  s1.guardGate();
+  s1.guardGate();
 }

@@ -6,28 +6,28 @@
 /*   By: yooshima <yooshima@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:05:12 by yooshima          #+#    #+#             */
-/*   Updated: 2025/01/15 22:21:04 by yooshima         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:58:27 by yooshima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.h"
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
-  std::cout << "FragTrap " << _name << " Default constructor called" << std::endl;
+  std::cout << "FragTrap " << _name << " Default constructor called"
+            << std::endl;
   _hitPoint = 100;
   _energyPoint = 100;
   _attackDamage = 30;
 };
 
-FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src)
-{
+FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src) {
   std::cout << "FragTrap " << _name << " Copy constructor called" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& src) {
   std::cout << "FragTrap " << _name << " Copy assignment operator called"
             << std::endl;
-  if(this != &src) {
+  if (this != &src) {
     _name = src._name;
     _hitPoint = src._hitPoint;
     _energyPoint = src._energyPoint;
@@ -51,7 +51,7 @@ void FragTrap::attack(const std::string& target) {
 
 void FragTrap::takeDamage(const unsigned int& amount) {
   if (_hitPoint <= 0) {
-    std::cout << "FragTrap " << _name << " not enough hit points" << std::endl;
+    std::cout << "FragTrap " << _name << " not enough hit points!" << std::endl;
     return;
   }
   std::cout << "FragTrap " << _name << " takes " << amount
@@ -61,8 +61,8 @@ void FragTrap::takeDamage(const unsigned int& amount) {
 
 void FragTrap::beRepaired(const unsigned int& amount) {
   if (_energyPoint <= 0 || _hitPoint <= 0) {
-    std::cout << "FragTrap " << _name
-              << " not enough energy points or hit points" << std::endl;
+    std::cout << "FragTrap " << _name << " not enough energyor hit points!"
+              << std::endl;
     return;
   }
   std::cout << "FragTrap " << _name << " repairs " << amount << " hit points!"
@@ -73,10 +73,9 @@ void FragTrap::beRepaired(const unsigned int& amount) {
 
 void FragTrap::highFivesGuys(void) {
   if (_hitPoint <= 0) {
-    std::cout << "FragTrap " << _name << " not enough hit points!"
-              << std::endl;
+    std::cout << "FragTrap " << _name << " not enough hit points!" << std::endl;
     return;
   }
-  std::cout << "FragTrap " << _name << " request  positive high fives!" << std::endl;
+  std::cout << "FragTrap " << _name << " request  positive high fives!"
+            << std::endl;
 }
-
